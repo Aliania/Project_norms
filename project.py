@@ -4,7 +4,65 @@ may = pd.read_excel('Documents/May.xlsx',)
 #print(may.columns)
 
 #may = may.dropna(axis = 'columns', inplace = True)
-may1 = may.drop(columns=['Unnamed: 1','Unnamed: 2', 'Unnamed: 3', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 8', 'Unnamed: 10', 'Unnamed: 12'])
-may1 = may1.set_axis(['product_name', 'weight_children', 'children_cost', 'nursery_weight', 'nursery_cost', 'weight_total', 'cost_total'], axis='columns')
+may1 = may.drop(columns=['Unnamed: 1','Unnamed: 2', 'Unnamed: 3', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 8', 'Unnamed: 10', 'Unnamed: 12']) #Убираем лишние стоблцы
+may1 = may1.set_axis(['product_name', 'weight_children', 'children_cost', 'nursery_weight', 'nursery_cost', 'weight_total', 'cost_total'], axis='columns') #Переименовываем столбцы
 may1 = may1.fillna('0')
-print(may1)
+product_names_and_coeff = {'Вафли': 1,
+'Геркулес':1,
+'Горох':1,
+'Дрожжи':1,
+'Зеленый горошек 0,420':0.67,
+'Зеленый горошек':0.67,
+'Изюм':1,
+'Какао':1,
+'Капуста':0.8,
+'Картофель':0.6,
+'Кефир':1,
+'Кисель сухой': 1,
+'Кислота аскорбиновая': 1,
+'Компот (сухофрукты)':1,
+'Кофе':1,
+'Крупа гречневая':1,
+'Крупа кукурузная':1,
+'Крупа манная':1,
+'Крупа перловая':1,
+'Крупа ячневая':1,
+'Лук':0.84,
+'Макаронные изделия':1,
+'Макаронные изделия "Вермишель"':1,
+'Масло растительное':1,
+'Масло сливочное':1,
+'Минтай':0.58,
+'Молоко свежее':1,
+'Молоко сухое цельное':8.33,
+'Морковь':0.75,
+'Мука пшеничная': 1,
+'Мясо ЦБ': 0.66,
+'Огурцы': 0.93,
+'Огурцы консервированные 0,72': 0.6,
+'Окорок свиной б/к': 0.852,
+'Печень говяжья': 0.83,
+'Печенье': 1,
+'Повидло разное': 1,
+'Помидоры': 0.85,
+'Пшено': 1,
+'Рис':1,
+'Ряженка':1,
+'Сахар песок': 1,
+'Свекла': 0.75,
+'Сметана': 1,
+'Сок фруктовый': 1,
+'Сок фруктовый 0,2 для яслей': 1,
+'Соль': 1,
+'Сыр': 0.97,
+'Творог': 0.985,
+'Хлеб "Пшеничный"': 1,
+'Хлеб "Ржаной"':1,
+'Чай': 1,
+'Шиповник': 1,
+'Яблоки': 0.88,
+'Яйцо':1}
+
+table_with_coeff = pd.Series(data =product_names_and_coeff)
+print(table_with_coeff)
+#print(may1)
