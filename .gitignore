@@ -1,3 +1,5 @@
 .spyproject
 env
 Documents
+.idea/
+.ipynb_checkpoints/
